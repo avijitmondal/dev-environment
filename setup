@@ -1,0 +1,4 @@
+#!/bin/bash
+
+dpkg -l cowsay
+ansible-playbook ansible-playbook.yml
