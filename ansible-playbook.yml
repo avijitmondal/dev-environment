@@ -15,6 +15,21 @@
         size: 4096
         state: present
         force: no
+    - name: Install build-ssential package
+      apt:
+        name: build-essential
+        state: present
+    - name: Install dkms package
+      apt:
+        name: dkms
+        state: present
+    - name: Checking kernel version
+      command: uname -r
+      register: kernel_version
+    - name: Install linux-header package
+      apt:
+        name: linux-headers-{{kernel_version.stdout}}
+        state: present
     - name: Install git package
       apt:
         name: git
