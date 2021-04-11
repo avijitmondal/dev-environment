@@ -4,6 +4,10 @@
   vars:
     ssh_key_filename: id_rsa
   tasks:
+    - name: Update APT package manager repositories cache
+      become: true
+      apt:
+        update_cache: yes
     - name: Creating SSH directory
       file:
         path: /tmp/.ssh
@@ -34,3 +38,11 @@
       apt:
         name: git
         state: present
+    - name: Install Java using Ansible
+      become: yes
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+           - openjdk-11-jdk

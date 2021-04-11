@@ -1,4 +1,7 @@
 #!/bin/bash
 
-dpkg -l cowsay
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt update
+sudo apt install ansible
+sudo apt-get install cowsay
 ansible-playbook ansible-playbook.yml
