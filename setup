@@ -1,8 +1,12 @@
 #!/bin/bash
 
+echo "Installing cowsay"
 sudo apt-get install cowsay
-sudo apt-get install --reinstall python3-apt
+echo "Adding ansible ppa to repository list"
 sudo apt-add-repository ppa:ansible/ansible
-sudo apt update
-sudo apt install ansible
+echo "Updating apt package repository"
+sudo apt-get update
+echo "Installing ansible"
+sudo apt-get install ansible
+echo "Running ansible playbook"
 ansible-playbook ansible-playbook.yml

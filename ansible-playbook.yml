@@ -3,18 +3,15 @@
   connection: local
   vars:
     ssh_key_filename: id_rsa
+    ansible_python_interpreter: "/usr/bin/python3"
   tasks:
-    - name: Update APT package manager repositories cache
-      become: true
-      apt:
-        update_cache: yes
     - name: Creating SSH directory
       file:
-        path: /tmp/.ssh
+        path: ~/.ssh
         state: directory
     - name: generate SSH key "{{ssh_key_filename}}"
       openssh_keypair:
-        path: "/tmp/.ssh/{{ssh_key_filename}}"
+        path: "~/.ssh/{{ssh_key_filename}}"
         type: rsa
         size: 4096
         state: present
