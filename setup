@@ -1,7 +1,8 @@
 #!/bin/bash
 
+sudo apt-get install cowsay
+sudo apt-get install --reinstall python3-apt
 sudo apt-add-repository ppa:ansible/ansible
 sudo apt update
 sudo apt install ansible
-sudo apt-get install cowsay
 ansible-playbook ansible-playbook.yml
