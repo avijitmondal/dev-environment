@@ -25,6 +25,7 @@
         name: build-essential
         state: present
     - name: Install dkms package
+      become: true
       apt:
         name: dkms
         state: present
