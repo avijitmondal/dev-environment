@@ -1,10 +1,13 @@
 #this script contains all the common functions need for other script
 
-# Redirect STDERR to STDOUT
-exec 2>&1
-
 #Assign date variable
 DATETIME=`date +"%m%d%y_%H%M%S-%Z"`
+
+# Redirect stdout ( > ) into a named pipe ( >() ) running "tee"
+exec 1> >(tee -ia /tmp/setup_ubuntu_dev_env_$DATETIME.log)
+
+# Redirect STDERR to STDOUT
+exec 2>&1
 
 red='\E[31m'
 green='\E[32m'

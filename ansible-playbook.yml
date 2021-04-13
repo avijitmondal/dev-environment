@@ -2,6 +2,7 @@
   hosts: localhost
   connection: local
   vars:
+  
     ssh_key_filename: id_rsa
     ansible_python_interpreter: "/usr/bin/python3"
   tasks:
@@ -48,3 +49,9 @@
       vars:
         packages:
            - openjdk-11-jdk
+    - name: Install emacs package
+      apt:
+        name: emacs
+        state: present
+
+ 

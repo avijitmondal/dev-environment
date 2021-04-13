@@ -25,7 +25,7 @@ function check_package_installed_status {
 }
 
 cowsay "Checking if all the packages are installed properly or not"
-check_package_installed_status "cowsay" "ansible" "dkms" "git" "openjdk-11-jdk" 
+check_package_installed_status "cowsay" "lolcat" "ansible" "dkms" "git" "openjdk-11-jdk" "emacs"
 cowsay "Checking RSA key generated successfully or not"
 check_file_is_exist "/home/$USER/.ssh/id_rsa.pub"
 echo_green "All checks complete all the applications have been configured properly"
