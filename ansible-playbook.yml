@@ -50,6 +50,7 @@
         packages:
            - openjdk-11-jdk
     - name: Install emacs package
+      become: true
       apt:
         name: emacs
         state: present
