@@ -1,43 +1,11 @@
 #!/bin/bash
 
-# Redirect STDERR to STDOUT
-exec 2>&1
+source common/common.sh
 
-red='\E[31m'
-green='\E[32m'
-yellow='\E[33m'
-blue='\E[1;34m'
-reset_color='\E[00m'
-
-function echo_green {
-    message=$1
-    echo -e "${green}`date`: ${message}${reset_color}"
-}
-
-function echo_yellow {
-    message=$1
-    echo -e "${yellow}`date`: ${message}${reset_color}"
-}
-
-function echo_red {
-    message=$1
-    echo -e "${red}`date`: ${message}${reset_color}"
-}
-
-function echo_blue {
-    message=$1
-    echo -e "${blue}`date`: ${message}${reset_color}"
-}
-
-echo_blue "Installing cowsay"
-sudo apt-get install cowsay
-echo_blue "Installing lolcat"
-sudo apt-get install -y lolcat
 echo_blue "Adding ansible ppa to repository list"
 sudo apt-add-repository ppa:ansible/ansible
 echo_blue "Updating apt package repository"
 sudo apt-get update
-echo_blue "Installing ansible"
-sudo apt-get install ansible
+install_apt_package cowsay lolcat ansible
 echo_blue "Running ansible playbook"
 ansible-playbook ansible-playbook.yml

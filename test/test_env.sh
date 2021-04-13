@@ -1,29 +1,6 @@
 #!/bin/bash
 
-# Redirect STDERR to STDOUT
-exec 2>&1
-
-# Color codes
-red='\E[31m'
-green='\E[32m'
-yellow='\E[33m'
-blue='\E[1;34m'
-reset_color='\E[00m'
-
-function echo_red {
-    message=$1
-    echo -e "${red}`date`: ${message}${reset_color}"
-}
-
-function echo_green {
-    message=$1
-    echo -e "${green}`date`: ${message}${reset_color}"
-}
-
-function exit_on_error {
-    echo_red "<< $1 >>"
-    exit 1
-}
+source common/common.sh
 
 function check_file_is_exist {
     if [ ! -f "$1" ]; then
