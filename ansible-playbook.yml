@@ -5,6 +5,10 @@
     ssh_key_filename: id_rsa
     ansible_python_interpreter: "/usr/bin/python3"
   tasks:
+    - name: Update APT package manager repositories cache
+      become: true
+      apt:
+        update_cache: yes
     - name: Creating SSH directory
       file:
         path: ~/.ssh
