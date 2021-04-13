@@ -21,8 +21,15 @@ function echo_green {
 }
 
 function exit_on_error {
-    echo_red "<< Package $1 has not installed properly >>"
+    echo_red "<< $1 >>"
     exit 1
+}
+
+function check_file_is_exist {
+    FILE=/etc/resolv.conf
+    if [ ! -f "$1" ]; then
+        exit_on_error "File $1 does not exists"
+    fi
 }
 
 function check_package_installed_status {
@@ -33,10 +40,13 @@ function check_package_installed_status {
         status_installed="install ok installed"
         if [ "$status" != "$status_installed" ];
         then
-            exit_on_error $package
+            exit_on_error "Package $package has not installed properly"
         fi
     done
     echo_green "All packages are installed properly"
 }
 
+Cowsay "Checking if all the packages are installed properly or not"
 check_package_installed_status "cowsay" "ansible" "dkms" "git" "openjdk-11-jdk" 
+Cowsay "Checking RSA key generated successfully or not"
+check_file_is_exist "~/.ssh/id_rsa.pub"
