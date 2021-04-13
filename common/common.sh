@@ -40,13 +40,13 @@ function exit_on_error {
 function install_apt_package {
     for package in "$@" 
     do
-        echo_yellow "Installing apt package $1"
-        sudo apt-get install -y $1
+        echo_yellow "Installing apt package $package"
+        sudo apt-get install -y $package
         if [ $? -ne 0 ];
         then
             exit_on_error "Package $package has not installed properly"
         else
-            echo_blue "Installed apt package $1"
+            echo_blue "Installed apt package $package"
         fi
     done
 }
