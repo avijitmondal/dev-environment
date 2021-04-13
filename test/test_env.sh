@@ -26,9 +26,10 @@ function exit_on_error {
 }
 
 function check_file_is_exist {
-    FILE=/etc/resolv.conf
     if [ ! -f "$1" ]; then
         exit_on_error "File $1 does not exists"
+    else
+        echo_green "RSA key has been generated properly"
     fi
 }
 
@@ -46,7 +47,8 @@ function check_package_installed_status {
     echo_green "All packages are installed properly"
 }
 
-Cowsay "Checking if all the packages are installed properly or not"
+cowsay "Checking if all the packages are installed properly or not"
 check_package_installed_status "cowsay" "ansible" "dkms" "git" "openjdk-11-jdk" 
-Cowsay "Checking RSA key generated successfully or not"
-check_file_is_exist "~/.ssh/id_rsa.pub"
+cowsay "Checking RSA key generated successfully or not"
+check_file_is_exist "/home/$USER/.ssh/id_rsa.pub"
+echo_green "All checks complete all the applications have been configured properly"
