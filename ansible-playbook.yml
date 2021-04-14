@@ -54,5 +54,11 @@
       apt:
         name: emacs
         state: present
+    - name: Remove useless packages from the cache
+      apt:
+        autoclean: yes
+    - name: Remove dependencies that are no longer required
+      apt:
+        autoremove: yes
 
  
