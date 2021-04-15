@@ -1,8 +1,7 @@
 - name: Setup ubuntu developer environment
   hosts: localhost
   connection: local
-  vars:
-  
+  vars:  
     ssh_key_filename: id_rsa
     ansible_python_interpreter: "/usr/bin/python3"
   tasks:
@@ -36,6 +35,14 @@
     - name: Install linux-header package
       apt:
         name: linux-headers-{{kernel_version.stdout}}
+        state: present
+    - name: Install fortune package
+      apt:
+        name: fortune
+        state: present
+    - name: Install figlet package
+      apt:
+        name: figlet
         state: present
     - name: Install git package
       apt:
