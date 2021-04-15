@@ -42,6 +42,7 @@
         name: fortune
         state: present
     - name: Install figlet package
+      become: true
       apt:
         name: figlet
         state: present
