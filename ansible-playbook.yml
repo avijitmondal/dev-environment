@@ -37,6 +37,7 @@
         name: linux-headers-{{kernel_version.stdout}}
         state: present
     - name: Install fortune package
+      become: true
       apt:
         name: fortune
         state: present

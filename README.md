@@ -8,7 +8,9 @@ Follow the below steps to install all necessary components on ubuntu
 
 `
 git clone https://github.com/avijitmondal/ubuntu-dev-env.git
+
 cd ubuntu-dev-env
+
 ./setup
 `
 
@@ -17,3 +19,6 @@ to check all the applications are installed or configured properly execute below
 `
 ./test/test_env.sh
 `
+
+Referred: https://www.guru99.com/ansible-tutorial.html#2
+
