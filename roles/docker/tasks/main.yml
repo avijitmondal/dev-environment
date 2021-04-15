@@ -1,0 +1,7 @@
+---
+
+- name: Install docker chrome
+  apt:
+    name: httpd
+    state: present
+  tags: docker

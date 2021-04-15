@@ -1,0 +1,6 @@
+---
+
+- hosts: all
+  roles:
+    - { role: chrome, tags: chrome }
+    - { role: docker, tags: docker }

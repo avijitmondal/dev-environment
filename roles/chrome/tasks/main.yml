@@ -1,0 +1,8 @@
+---
+
+- name: Install google chrome
+  apt:
+    name: httpd
+    state: present
+  tags: chrome
+
