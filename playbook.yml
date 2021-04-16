@@ -1,6 +1,9 @@
 ---
 
-- hosts: all
+- connection: local
+  hosts:
+  - localhost
   roles:
-    - { role: chrome, tags: chrome }
-    - { role: docker, tags: docker }
+  - { role: chrome, tags: chrome }
+  - { role: docker, tags: docker }
+  - emacs

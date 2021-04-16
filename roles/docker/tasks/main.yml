@@ -1,7 +1,7 @@
 ---
 
-- name: Install docker chrome
+- name: Install docker
+  become: true
   apt:
-    name: httpd
-    state: present
+    update_cache: yes
   tags: docker

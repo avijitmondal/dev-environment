@@ -1,8 +1,8 @@
 ---
 
 - name: Install google chrome
+  become: true
   apt:
-    name: httpd
-    state: present
+    update_cache: yes
   tags: chrome
 

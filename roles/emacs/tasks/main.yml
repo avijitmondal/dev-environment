@@ -1,0 +1,11 @@
+---
+
+- name: Install emacs
+  become: true
+  apt:
+    name: emacs
+    state: present
+- name: Copy .emacs to user home directory
+  copy:
+    src: .emacs
+    dest: ~/.emacs
