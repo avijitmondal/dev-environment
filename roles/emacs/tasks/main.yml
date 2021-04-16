@@ -9,3 +9,8 @@
   copy:
     src: .emacs
     dest: ~/.emacs
+- name: check if emacs package is installed
+  apt:
+    name: emacs
+    state: present
+  check_mode: true
