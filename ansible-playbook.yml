@@ -33,6 +33,7 @@
       command: uname -r
       register: kernel_version
     - name: Install linux-header package
+      become: true
       apt:
         name: linux-headers-{{kernel_version.stdout}}
         state: present
