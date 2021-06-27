@@ -4,15 +4,11 @@
 
 This will install all necessary modules on linux system for development environment
 
-Follow the below steps to install all necessary components on linux specially on ubuntu 
+Follow the below steps to install all necessary components on linux specially on ubuntu
 
-`
-git clone https://github.com/avijitmondal/dev-environment.git
-
-cd dev-environment
-
-./setup
-`
+`git clone https://github.com/avijitmondal/dev-environment.git \
+cd dev-environment \
+./setup`
 
 to check all the applications are installed or configured properly execute below script
 
